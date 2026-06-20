@@ -20,7 +20,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://taskmanager-app-neon.vercel.app",
+    origin: [
+      "http://localhost:5173",
+      "https://taskmanager-app-neon.vercel.app",
+    ],
     credentials: true,
   }),
 );
