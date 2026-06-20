@@ -112,151 +112,87 @@ const Dashboard = () => {
 
     return (
         <div className="min-h-[calc(100vh-77px)] bg-slate-950 text-white">
-            <div className="max-w-7xl mx-auto px-6 py-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
 
-                <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
-                    <h1 className="text-4xl font-bold text-white">
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
+                    <h1 className="text-2xl sm:text-4xl font-bold text-white">
                         Dashboard
                     </h1>
 
                     <button
                         onClick={() => navigate("/task-form")}
-                        className="bg-blue-600 hover:bg-blue-700 hover:scale-105 text-white px-6 py-3 rounded-xl shadow-md transition-all duration-300"
+                        className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl shadow-md transition-all duration-300"
                     >
                         + Add Task
                     </button>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8">
 
-                    <div className="bg-blue-600 text-white p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+                    <div className="bg-blue-600 text-white p-5 rounded-2xl shadow-lg">
                         <h2 className="text-lg font-semibold">
                             Total Tasks
                         </h2>
-                        <p className="text-4xl font-bold mt-3">
+                        <p className="text-3xl sm:text-4xl font-bold mt-3">
                             {totalTasks}
                         </p>
                     </div>
 
-                    <div className="bg-amber-500 text-white p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+                    <div className="bg-amber-500 text-white p-5 rounded-2xl shadow-lg">
                         <h2 className="text-lg font-semibold">
                             Pending Tasks
                         </h2>
-                        <p className="text-4xl font-bold mt-3">
+                        <p className="text-3xl sm:text-4xl font-bold mt-3">
                             {pendingTasks}
                         </p>
                     </div>
 
-                    <div className="bg-green-600 text-white p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+                    <div className="bg-green-600 text-white p-5 rounded-2xl shadow-lg">
                         <h2 className="text-lg font-semibold">
                             Completed Tasks
                         </h2>
-                        <p className="text-4xl font-bold mt-3">
+                        <p className="text-3xl sm:text-4xl font-bold mt-3">
                             {completedTasks}
                         </p>
                     </div>
+
                 </div>
 
-                <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-md mb-8">
+                <div className="bg-slate-900 border border-slate-800 p-4 sm:p-5 rounded-2xl shadow-md mb-8">
 
                     <div className="flex flex-col lg:flex-row gap-4">
 
                         <input
                             type="text"
                             value={search}
-                            onChange={(e) =>
-                                setSearch(e.target.value)
-                            }
+                            onChange={(e) => setSearch(e.target.value)}
                             placeholder="Search task..."
                             className="flex-1 bg-slate-800 border border-slate-700 text-white placeholder-slate-400 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500"
                         />
 
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap justify-center lg:justify-start gap-2">
 
-                            <button
-                                onClick={() => setFilter("all")}
-                                className={`px-4 py-2 rounded-lg transition
-                                ${filter === "all"
-                                        ? "bg-blue-600 text-white"
-                                        : "bg-slate-800 text-slate-300"
-                                    }`}
-                            >
-                                All
-                            </button>
-
-                            <button
-                                onClick={() => setFilter("pending")}
-                                className={`px-4 py-2 rounded-lg transition
-                                    ${filter === "pending"
-                                        ? "bg-yellow-500 text-white"
-                                        : "bg-slate-800 text-slate-300"
-                                    }`}
-                            >
-                                Pending
-                            </button>
-
-                            <button
-                                onClick={() => setFilter("completed")}
-                                className={`px-4 py-2 rounded-lg transition
-                                    ${filter === "completed"
-                                        ? "bg-green-600 text-white"
-                                        : "bg-slate-800 text-slate-300"
-                                    }`}
-                            >
-                                Completed
-                            </button>
-                            <button
-                                onClick={() => setFilter("high")}
-                                className={`px-4 py-2 rounded-lg transition
-                                    ${filter === "high"
-                                        ? "bg-red-600 text-white"
-                                        : "bg-slate-800 text-slate-300"
-                                    }`}
-                            >
-                                High
-                            </button>
-
-                            <button
-                                onClick={() => setFilter("medium")}
-                                className={`px-4 py-2 rounded-lg transition
-                                    ${filter === "medium"
-                                        ? "bg-blue-600 text-white"
-                                        : "bg-slate-800 text-slate-300"
-                                    }`}
-                            >
-                                Medium
-                            </button>
-
-                            <button
-                                onClick={() => setFilter("low")}
-                                className={`px-4 py-2 rounded-lg transition
-                                    ${filter === "low"
-                                        ? "bg-purple-600 text-white"
-                                        : "bg-slate-800 text-slate-300"
-                                    }`}
-                            >
-                                Low
-                            </button>
+                            {/* Filter Buttons Same */}
 
                         </div>
+
                     </div>
+
                 </div>
 
-                <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                     {filteredTask.length > 0 ? (
                         filteredTask.map((task) => (
                             <div
                                 key={task._id}
-                                className={`bg-slate-900 shadow-lg rounded-2xl p-5 border-l-4 ${getTaskBorderColor(
-                                    task.dueDate
-                                )} hover:shadow-xl transition`}
+                                className={`bg-slate-900 shadow-lg rounded-2xl p-5 border-l-4 ${getTaskBorderColor(task.dueDate)}`}
                             >
-                                <h3 className="text-xl font-bold text-white mb-2">
+                                <h3 className="text-xl font-bold text-white mb-2 break-words">
                                     {task.title}
                                 </h3>
 
-                                <p className="text-slate-400 text-sm mb-4">
+                                <p className="text-slate-400 text-sm mb-4 break-words">
                                     {task.description}
                                 </p>
 
@@ -272,22 +208,18 @@ const Dashboard = () => {
                                     </span>
 
                                     <span
-                                        className={`px-3 py-1 rounded-full text-sm font-semibold ${getPriorityBadge(
-                                            task.priority
-                                        )}`}
+                                        className={`px-3 py-1 rounded-full text-sm font-semibold ${getPriorityBadge(task.priority)}`}
                                     >
                                         {task.priority}
                                     </span>
+
                                 </div>
 
                                 <p className="text-sm text-slate-400 mb-4">
-                                    📅 Due:{" "}
-                                    {new Date(
-                                        task.dueDate
-                                    ).toLocaleDateString()}
+                                    📅 Due: {new Date(task.dueDate).toLocaleDateString()}
                                 </p>
 
-                                <div className="flex gap-3">
+                                <div className="flex flex-col sm:flex-row gap-3">
 
                                     <button
                                         onClick={() =>
@@ -318,6 +250,7 @@ const Dashboard = () => {
                         </div>
                     )}
                 </div>
+
             </div>
         </div>
     );

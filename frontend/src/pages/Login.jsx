@@ -47,18 +47,18 @@ const Login = () => {
     }
 
     return (
-        <div className="min-h-[calc(100vh-77px)] bg-slate-950 flex justify-center items-center px-4 py-10">
+        <div className="min-h-[calc(100vh-77px)] bg-slate-950 flex justify-center items-center px-4 py-6">
 
             <form
                 onSubmit={handleSubmit}
-                className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl p-8"
+                className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl p-5 sm:p-8"
             >
-                <div className="text-center mb-8">
-                    <h1 className="text-4xl font-bold text-white">
+                <div className="text-center mb-6 sm:mb-8">
+                    <h1 className="text-3xl sm:text-4xl font-bold text-white">
                         Welcome Back
                     </h1>
 
-                    <p className="text-slate-400 mt-2">
+                    <p className="text-sm sm:text-base text-slate-400 mt-2">
                         Login to continue managing your tasks
                     </p>
                 </div>
@@ -78,7 +78,7 @@ const Login = () => {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                         placeholder="Enter your email"
-                        className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                        className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </div>
 
@@ -97,24 +97,24 @@ const Login = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                         placeholder="Enter your password"
-                        className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                        className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </div>
 
                 <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold transition-all duration-300 disabled:opacity-50"
                 >
                     {loading ? "Logging in..." : "Login"}
                 </button>
 
                 <div className="mt-6 text-center">
-                    <p className="text-slate-400">
+                    <p className="text-sm sm:text-base text-slate-400">
                         Don't have an account?{" "}
                         <Link
                             to="/register"
-                            className="text-blue-400 font-semibold hover:text-blue-300 transition"
+                            className="text-blue-400 font-semibold hover:text-blue-300"
                         >
                             Register
                         </Link>

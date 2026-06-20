@@ -75,25 +75,25 @@ const TaskForm = () => {
     };
 
     return (
-        <div className="min-h-screen bg-slate-950 flex items-center justify-center px-4 py-10">
+        <div className="min-h-[calc(100vh-77px)] bg-slate-950 flex items-center justify-center px-4 py-6">
 
             <form
                 onSubmit={handleSubmit}
-                className="w-full max-w-2xl bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl p-8"
+                className="w-full max-w-2xl bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl p-5 sm:p-8"
             >
-                <div className="text-center mb-8">
-                    <h1 className="text-4xl font-bold text-white">
+                <div className="text-center mb-6 sm:mb-8">
+                    <h1 className="text-3xl sm:text-4xl font-bold text-white">
                         {editTask ? "Edit Task" : "Create Task"}
                     </h1>
 
-                    <p className="text-slate-400 mt-2">
+                    <p className="text-sm sm:text-base text-slate-400 mt-2">
                         {editTask
                             ? "Update your task details"
                             : "Add a new task to manage your work"}
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 
                     <div>
                         <label className="block mb-2 font-medium text-slate-300">
@@ -106,7 +106,7 @@ const TaskForm = () => {
                             onChange={(e) => setTitle(e.target.value)}
                             required
                             placeholder="Enter task title"
-                            className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                            className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
 
@@ -119,7 +119,7 @@ const TaskForm = () => {
                             value={status}
                             onChange={(e) => setStatus(e.target.value)}
                             required
-                            className="w-full bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                            className="w-full bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500"
                         >
                             <option value="">Select Status</option>
                             <option value="Pending">Pending</option>
@@ -136,7 +136,7 @@ const TaskForm = () => {
                             value={priority}
                             onChange={(e) => setPriority(e.target.value)}
                             required
-                            className="w-full bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                            className="w-full bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500"
                         >
                             <option value="">Select Priority</option>
                             <option value="Low">Low</option>
@@ -155,7 +155,7 @@ const TaskForm = () => {
                             value={date}
                             onChange={(e) => setDate(e.target.value)}
                             required
-                            className="w-full bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                            className="w-full bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
 
@@ -171,7 +171,7 @@ const TaskForm = () => {
                         onChange={(e) => setDesc(e.target.value)}
                         rows="5"
                         placeholder="Enter task description..."
-                        className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none transition"
+                        className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 px-4 py-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 resize-none"
                     />
                 </div>
 
@@ -180,7 +180,7 @@ const TaskForm = () => {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-semibold disabled:opacity-50"
                     >
                         {loading
                             ? (editTask ? "Updating..." : "Saving...")
@@ -190,7 +190,7 @@ const TaskForm = () => {
                     <button
                         type="button"
                         onClick={() => navigate("/dashboard")}
-                        className="flex-1 bg-red-600 hover:bg-red-700 text-white py-3 rounded-xl font-semibold transition-all duration-300"
+                        className="flex-1 bg-red-600 hover:bg-red-700 text-white py-3 rounded-xl font-semibold"
                     >
                         Cancel
                     </button>
