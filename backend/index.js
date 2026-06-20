@@ -25,8 +25,7 @@ app.use(cookieParser());
 // );
 app.use(
   cors({
-    origin:
-      "https://taskmanager-r4shkpf04-harsh-ramanis-projects-089471d3.vercel.app",
+    origin: true,
     credentials: true,
   }),
 );
