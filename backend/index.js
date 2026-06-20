@@ -12,7 +12,6 @@ dotenv.config();
 connectDB();
 
 const port = process.env.PORT;
-const hostname = process.env.HOSTNAME;
 
 const app = express();
 app.use(express.json());
@@ -35,6 +34,6 @@ app.get("/", (req, res) => {
   res.send("Backend running");
 });
 
-app.listen(port, hostname, () => {
-  console.log(`server started http://${hostname}:${port}`);
+app.listen(port, () => {
+  console.log(`server started http://localhost:${port}`);
 });
