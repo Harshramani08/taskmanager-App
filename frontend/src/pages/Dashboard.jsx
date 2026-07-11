@@ -188,11 +188,11 @@ const Dashboard = () => {
                                 key={task._id}
                                 className={`bg-slate-900 shadow-lg rounded-2xl p-5 border-l-4 ${getTaskBorderColor(task.dueDate)}`}
                             >
-                                <h3 className="text-xl font-bold text-white mb-2 break-words">
+                                <h3 className="text-xl font-bold text-white mb-2 wrap-break-words">
                                     {task.title}
                                 </h3>
 
-                                <p className="text-slate-400 text-sm mb-4 break-words">
+                                <p className="text-slate-400 text-sm mb-4 wrap-break-words">
                                     {task.description}
                                 </p>
 
