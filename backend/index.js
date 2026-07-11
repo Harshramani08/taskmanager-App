@@ -10,7 +10,7 @@ import dns from "dns";
 dns.setServers(["8.8.8.8", "1.1.1.1"]);
 dotenv.config();
 connectDB();
-
+mongoose.connect(process.env.MONGO_URL);
 const port = process.env.PORT || 3000;
 
 const app = express();
